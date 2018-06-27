@@ -1,0 +1,11 @@
+1. Only one import is visible, ExitProcess. PEiD shows that the file is encrypted/packed with PEncrypt 3.1 Final -> junkcode. 
+Strings provide some insight into the malware's purpose. Registry paths, such as 'Software\Microsoft\Active Setup\Installed Components\', 'SOFTWARE\Microsoft\Windows\CurrentVersion\Explorer\Shell Folders', 'Software\Microsoft\Active Setup\Installed Components\', 'SOFTWARE\Classes\http\shell\open\commandV' and 'SOFTWARE\Microsoft\Windows\CurrentVersion\Run' for persistency. Other noticeable strings: WinVMX32, vmx32to64.exe, admin, www.practicalmalwareanalysis.com, VideoDriver and CONNECT %s:%i HTTP /1.0
+
+2. Host based indicators: 
+*drops payload to 'C:\WINDOWS\system32\vmx32to64.exe'
+*modifies registry values in: 'HKLM\SOFTWARE\Microsoft\Windows\CurrentVersion\Run\VideoDriver' - persitency mechanism to run vmx32to64.exe on every startup.
+*mutex\mutant-> \BasedNamedObjects\WinVMX32 - if mutex is present the malware does not run again?
+
+3. Network based indicators:
+*DNS query to 'www.practicalmalwareanalysis.com'
+*256 bytes sent 
