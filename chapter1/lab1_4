@@ -1,0 +1,14 @@
+2. The file is not packed nor obfuscated.
+
+3. The program was compuled August 30, 2019 22:26:59 
+(timestamp was modified)
+
+4. LoadResources, WinExec, WriteFile, CreateFileA
+urlmon.dll - URLDownloadToFileA.
+Overview: Malware loads a resource file which contains urlmon.dll. With this dll the malware is able to import URLDownloadToFileA to connect to "http://www.practicalmalwareanalysis.com/updater.exe" and download "updater.exe". This binary is most likely executed with WinExec.
+
+5. Network based indicators: "http://www.practicalmalwareanalysis.com/updater.exe"
+Host based indicators: \\winup.exe, \\system32\\wupdmgrd.exe
+
+6. From the resource at the resource section, it seems the malware imports urlmon.dll, creates a connection with URLDownloadToFileA to "http://www.practicalmalwareanalysis.com/updater.exe"
+and downloads "update.exe" to a specified file.

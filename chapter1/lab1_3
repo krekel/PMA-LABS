@@ -1,0 +1,7 @@
+2. The file is packed. There are only few imports visible. Virtual size is bigger than raw size. hinting at a packer.
+The file is packed by FSG V1.00(Eng) -> dulek/xt
+
+3. Imports are not available since the binary is packed.
+As of now, we don't have the tools to unpack this packer.
+
+4. The program must be unpacked to obtain more information.
